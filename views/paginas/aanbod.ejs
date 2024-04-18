@@ -1,0 +1,29 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/nav.ejs') %>
+
+<h2>Aanbod overzicht</h2>
+
+<section class="for-each-cards">
+    <ul>
+        <% initiatiefAanbod.forEach(aanbod => {
+             %>
+            <li>
+                <a href="/detail/<%=aanbod.id%>">
+                    <% if (aanbod.image) { %>
+                    <img src="https://fdnd-agency.directus.app/assets/<%= aanbod.image.id %>" width="<%= aanbod.image.width %>" height="<%= aanbod.image.height %>"
+        
+                    alt="<%- aanbod.title %>">
+                    <% } %>
+               <h3> <%=aanbod.title%> </h3>
+               <% if (aanbod.image) { %>
+                <!-- onerror; https://github.com/users/SamaraFellaDina/projects/7/views/2?pane=issue&itemId=53408192 -->
+            <% } %>     
+                </a>           
+             <button><a href="detail/<%=aanbod.id%>"> Meer informatie</a></button>
+            </li>
+        <% 
+        }) %>
+    </ul>
+</section>
+
+<%- include('../partials/foot.ejs') -%>

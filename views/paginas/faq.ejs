@@ -1,0 +1,75 @@
+<%- include('../partials/head.ejs') -%>
+<%- include('../partials/nav.ejs') -%>
+
+<h2>Veelgestelde vragen</h2>
+
+<article>
+    <details><summary> Wat kan ik met deze website?</summary>
+    <p>Met deze website kan je verschillende initiatieven opzoeken, als jezelf op zoek bent naar een dienst dan kan je hier naar zoeken, maar je kan ook jezelf aanmelden om een dienst te vervullen.</p> 
+    </details>
+
+    <details><summary> Waar kan ik mezelf aanmelden?</summary>
+    <p>Op de <a href="/aanmelden">Aanmelden pagina</a> kun je de gegevens van jou aangeboden, of gevraagde dienst invullen. Hierna zullen wij aan de slag gaan om deze aanvraag of aanbod te verwerken en zullen we deze hierna op de website plaatsen.</p> 
+    </details>
+</article>
+
+<style>
+
+    h2 {
+        color: var(--colorOne);
+        margin-left: 1em;
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        margin-left: 3em;
+    }
+
+    details {
+        padding: 1em;
+        margin-block: 1em;
+        border: 2px solid var(--colorOne);
+        border-radius: 0.5em;
+        width: fit-content;
+        cursor: pointer;
+        font-weight: 500;
+        max-width: 45em;
+    }
+
+    summary {
+        color: var(--colorOne);
+    }
+
+    details[open] {
+        border: none;
+        padding: 0;
+    }
+
+    details[open] p {
+        padding: 1em;
+        border-radius: 0 0.5em 0.5em 0.5em;
+        margin: 0;
+    }
+
+    details[open] p,
+    details[open] summary {
+        background-color: var(--colorOne);
+        color: var(--colorTwo);
+
+        a {
+        color: blue;
+        text-decoration: underline;
+    }
+    }
+
+    details[open] summary {
+        border-radius: 0.5em 0.5em 0 0;
+        width: fit-content;
+        padding: 1em;
+        color: var(--colorTwo);
+    }
+
+</style>
+
+<%- include('../partials/foot.ejs') -%>
