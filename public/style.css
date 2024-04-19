@@ -11,7 +11,7 @@ ul {
     list-style: none;
 }
 
-img {
+.for-each-cards img {
     width: 20em;
     height: 20em;
     object-fit: cover;

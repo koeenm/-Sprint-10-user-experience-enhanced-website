@@ -53,6 +53,14 @@ app.get('/faq', function(request, response) {
   response.render('paginas/faq')
 })
 
+app.get('/over-ons', function(request, response) {
+  response.render('paginas/over-ons')
+})
+
+app.get('/contact', function(request, response) {
+  response.render('paginas/contact')
+})
+
 app.listen(app.get('port'), function () {
   console.log(`Application started on http://localhost:${app.get('port')}`)
 })
