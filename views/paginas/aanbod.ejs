@@ -1,7 +1,7 @@
 <%- include('../partials/head.ejs') %>
 <%- include('../partials/nav.ejs') %>
 
-<h2>Aanbod overzicht</h2>
+<h1>Aanbod overzicht</h1>
 
 <section class="for-each-cards">
     <ul>
@@ -14,7 +14,7 @@
         
                     alt="<%- aanbod.title %>">
                     <% } %>
-               <h3> <%=aanbod.title%> </h3>
+               <h2> <%=aanbod.title%> </h2>
                <% if (aanbod.image) { %>
                 <!-- onerror; https://github.com/users/SamaraFellaDina/projects/7/views/2?pane=issue&itemId=53408192 -->
             <% } %>     
