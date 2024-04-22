@@ -1,5 +1,85 @@
 <%- include('../partials/head.ejs') -%>
 <%- include('../partials/nav.ejs') -%>
 
+<h2>Aanmelden</h2>
 
+<form action="/service-aanmelden" method="post">
+    <fieldset>
+        <legend>Contactgegevens</legend>
+        <p>Hoe heet je?</p>
+        <label for="name">Voornaam<span>*</span></label>
+        <input type="text" name="name" id="name" required>
+        <label for="name">Achternaam<span>*</span></label>
+        <input type="text" name="surname" id="surname" required>
+
+        <p>Op welke e-mail kunnen we je bereiken?</p>
+        <label for="email">E-mail<span>*</span></label>
+        <input type="text" name="email" id="email" required>
+    </fieldset>
+
+    <fieldset>
+        <legend>Initiatief gegevens</legend>
+        <p>Wat wil je?<span>*</span></p>
+      <div class="vraag-aanbod-form">
+       <p>
+        <input type="radio" id="vraag" value="vraag">
+        <label for="type">Vraag</label>
+       </p>
+       <p>
+        <input type="radio" id="aanbod" value="aanbod">
+        <label for="type">Aanbod</label>
+       </p>
+      </div>
+
+      <style>
+        .vraag-aanbod-form {
+            display: flex;
+            flex-direction: column;
+
+            p {
+                margin: 0;
+            }
+        }
+      </style>
+
+        <label for="title">Titel<span>*</span></label>
+        <input type="text" name="title" id="title" required>
+
+        <label for="short_description">Hoe zou je je initiatief in 3 zinnen beschrijven?<span>*</span></label>
+        <input type="text" name="short_description" id="short_description" required>
+
+        <label for="long_description">Kan je nog meer over je initiatief vertellen? </label>
+        <input type="text" name="long_description" id="long_description">
+
+        <label for="neighbourhood">In welke buurt is het?<span>*</span></label>
+        <select name="neighbourhood" id="neighbourhood"required>
+            <option value="Westerpark">Westerpark</option>
+            <option value="Bos en Lommer">Bos en Lommer</option>
+            <option value="De Baarsjes">De Baarsjes</option>
+            <option value="Oud West">Oud West</option>
+            <option value="Nieuw West">Nieuw West</option>
+        </select>
+
+        <label for="location">Wat is de locatie?</label>
+        <input type="text" name="location" id="location">
+
+        <label for="start_date">Wat is de start datum?<span>*</span></label>
+        <input type="date" name="start_date" id="start_date" required>
+        <label for="end_date">Wat is de eind datum?<span>*</span></label>
+        <input type="date" name="end_date" id="end_date" required>
+
+        <label for="image">Voeg een foto toe van het initiatief</label>
+        <input type="file" name="image" id="image" accept="image/png, image/jpg">
+
+        <input type="submit" value="Vraag aan">
+    </fieldset>
+</form>
+
+    <style>
+        fieldset {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+    </style>
 <%- include('../partials/foot.ejs') -%>

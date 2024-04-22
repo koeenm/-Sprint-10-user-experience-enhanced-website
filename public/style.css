@@ -1,9 +1,10 @@
 * {
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
-
+    margin-left: 1em;
 }
 
 ul {
@@ -11,8 +12,65 @@ ul {
     list-style: none;
 }
 
-.for-each-cards img {
-    width: 20em;
-    height: 20em;
-    object-fit: cover;
+a {
+    text-decoration: none;
+    color: black;
 }
+
+.for-each-cards {
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;    
+        justify-content: center;
+        gap: 2em;
+    }
+
+    li {
+        height: 30em;
+        width: 20em;
+        background-color: lightgrey;
+
+        border-radius: 1em;
+        position: relative;
+    }
+
+    h2 {
+        font-size: 1em;
+        max-width: 20em;
+        text-align: center;
+    }
+    
+    img {
+        width: 20em;
+        height: 20em;
+        object-fit: cover;
+
+        border-radius: 1em 1em 0 0;
+    }
+
+    button {
+        color: white;
+        background-color: black;
+        border: none;
+        padding: 0.5em 1em;
+        border-radius: 1em;
+        position: absolute;
+
+        a {
+            color: white;
+        }
+    }
+
+    button.more-info {
+        left: 0.5em;
+        bottom: 0.5em;
+    }
+
+    button.like-button {
+        right: 0.5em;
+        bottom: 0.5em;
+    }
+    
+}
+

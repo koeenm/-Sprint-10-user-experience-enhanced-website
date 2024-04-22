@@ -28,7 +28,7 @@ app.get('/detail/:id', function(request, response) {
 })
 
 app.get('/vraag', function (request, response) {
-  fetchJson(apiUrl + '?fields=*,image.id,image.height,image.width' + '?filter={%22type%22:%22vraag%22}').then((apiData) => {
+  fetchJson(apiUrl + '?fields=*,image.id,image.height,image.width&filter={%22type%22:%22vraag%22}').then((apiData) => {
     response.render('paginas/vraag', {
         initiatiefVraag: apiData.data
       })
@@ -37,7 +37,7 @@ app.get('/vraag', function (request, response) {
   })
 
 app.get('/aanbod', function (request, response) {
-  fetchJson(apiUrl + '?fields=*,image.id,image.height,image.width' + '?filter={%22type%22:%aanbod%22}').then((apiData) => {
+  fetchJson(apiUrl + '?fields=*,image.id,image.height,image.width&filter={%22type%22:%aanbod%22}').then((apiData) => {
     response.render('paginas/aanbod', {
       initiatiefAanbod: apiData.data
     })
@@ -46,7 +46,7 @@ app.get('/aanbod', function (request, response) {
 })
 
 app.get('/aanmelden', function(request,response) {
-    response.render('aanmelden')
+    response.render('paginas/aanmelden')
 })
 
 app.get('/faq', function(request, response) {
