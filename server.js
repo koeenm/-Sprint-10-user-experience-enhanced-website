@@ -12,6 +12,14 @@ app.use(express.urlencoded({extended: true}))
 const apiUrl = 'https://fdnd-agency.directus.app/items/dh_services'
 const relatedUrl = await fetchJson(apiUrl)
 
+// Definieer de basis-URL voor API-verzoeken
+const baseUrl = "https://fdnd-agency.directus.app";
+
+// Haal de gegevens van de FDND Agency API op
+const fetchData = async () => {
+  const allDataAdvertisements = await fetchFromApi("/items/dh_services");
+  return allDataAdvertisements;
+};
 // => betekend hetzelfde als function
 app.get('/', (request, response) => {
     response.render('index')
@@ -37,7 +45,7 @@ app.get('/vraag', function (request, response) {
   })
 
 app.get('/aanbod', function (request, response) {
-  fetchJson(apiUrl + '?fields=*,image.id,image.height,image.width&filter={%22type%22:%aanbod%22}').then((apiData) => {
+  fetchJson(apiUrl + '?fields=*,image.id,image.height,image.width' + 'filter={%22type%22:%aanbod%22}').then((apiData) => {
     response.render('paginas/aanbod', {
       initiatiefAanbod: apiData.data
     })
@@ -65,12 +73,34 @@ app.listen(app.get('port'), function () {
   console.log(`Application started on http://localhost:${app.get('port')}`)
 })
 
-// like functie
+// POST-route voor het liken van een service
+app.post("/like", async function (request, response) {
+  const initiatiefId = request.body.initiatiefId;
+  const likes = request.body.likes;
 
-// een post route voor article
-//check of de id al in de array staat en tel er 1 bij op, of maak een nieuw object
-// stuur de gebruiker door naar het betreffende artikel
+  console.log("Like verzoek voor service met ID:", initiatiefId);
+  console.log("Total likes:", likes);
+  
+  if (initiatiefId) {
+      // Update het aantal likes in de Directus API
 
+      fetchJson(`${apiUrl}/${initiatiefId}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ likes: likes })
+      }).then((data) => {
+          console.log(data);
+          console.log("Aantal likes bijgewerkt voor service:", initiatiefId, likes);
+      }).catch((error) => {
+          console.error("Error patching likes in Directus API:", error);
+      });
 
-// dit is een array van objects waarin de id en like# zit, eg. [{ id: 'bliep', likes: 42}]
-let likes = []
+  
+  } else {
+    // Laat het weten als de service niet gevonden is.
+    console.log("Service niet gevonden voor ID:", initiatiefId);
+    response.status(404).send("Service niet gevonden");
+  }
+});

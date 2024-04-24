@@ -10,9 +10,10 @@
             <li>
                 <a href="/detail/<%=vraag.id%>">
                     <% if (vraag.image) { %>
-                    <img src="https://fdnd-agency.directus.app/assets/<%= vraag.image.id %>"  width="<%= vraag.image.width %>" height="<%= vraag.image.height %>"
-        
-                    alt="<%- vraag.title %>">
+                        <picture>
+                            <source srcset="https://fdnd-agency.directus.app/assets/<%= vraag.image.id %>?format=webp" type="image/webp">
+                            <img src="https://fdnd-agency.directus.app/assets/<%= vraag.image.id %>" width="<%= vraag.image.width %>" height="<%= vraag.image.height %>" alt="<%- vraag.title %>">
+                        </picture>
                     <% } %>
                <h2> <%=vraag.title%> </h2>
                <% if (vraag.image) { %>
