@@ -12,6 +12,7 @@
                     <% if (vraag.image) { %>
                         <picture>
                             <source srcset="https://fdnd-agency.directus.app/assets/<%= vraag.image.id %>?format=webp" type="image/webp">
+                            <%console.log(vraag.image.id)%>
                             <img src="https://fdnd-agency.directus.app/assets/<%= vraag.image.id %>" width="<%= vraag.image.width %>" height="<%= vraag.image.height %>" alt="<%- vraag.title %>">
                         </picture>
                     <% } %>
@@ -22,7 +23,12 @@
                 </a>          
                 
                 <button class="more-info"><a href="/detail/<%=vraag.id%>">Meer informatie</a></button>
-                <button class="like-button">Vind ik leuk</button>
+                <form action="/like" method="POST">
+                    <label class="heart-checkbox" for="<%= vraag.id %>-like">
+                        <input type="checkbox" name="like" id="<%= vraag.id %>-like" value="<%= vraag.id %>" />
+                        <span><%= vraag.likes %></span>
+                    </label>
+                </form>  
             </li>
         <% 
         }) %>

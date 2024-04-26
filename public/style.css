@@ -67,7 +67,8 @@ a {
         bottom: 0.5em;
     }
 
-    button.like-button {
+    form {
+        position: absolute;
         right: 0.5em;
         bottom: 0.5em;
     }

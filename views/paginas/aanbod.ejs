@@ -11,6 +11,7 @@
                 <a href="/detail/<%=aanbod.id%>">
                     <% if (aanbod.image) { %>
                         <picture>
+                            <source srcset="https://fdnd-agency.directus.app/assets/<%= aanbod.image.id %>?format=avif" type="image/avif">
                             <source srcset="https://fdnd-agency.directus.app/assets/<%= aanbod.image.id %>?format=webp" type="image/webp">
                             <img src="https://fdnd-agency.directus.app/assets/<%= aanbod.image.id %>" width="<%= aanbod.image.width %>" height="<%= aanbod.image.height %>" alt="<%- aanbod.title %>">
                         </picture>
@@ -26,7 +27,8 @@
                       <input type="checkbox" name="like" id="<%= aanbod.id %>-like" value="<%= aanbod.id %>" />
                       <span><%= aanbod.likes %></span>
                     </label>
-                  </form>            </li>
+                  </form>            
+                </li>
         <% 
         }) %>
     </ul>
